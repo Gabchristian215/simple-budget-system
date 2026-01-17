@@ -72,10 +72,30 @@ int main(){
             cout << "Wants (30%): " << wants << endl;
             cout << "Savings (20%): " << savings << endl;
             break;
+        }
         case 4:
+        {
             cout << "4. Debt tracker" << endl;
-            // TODO: Implement debt tracker
+            double debtAmount;
+            double payment;
+            cout << "Enter your total debt amount: ";
+            cin >> debtAmount;
+            if(debtAmount > 0){
+                cout << "you owe: $" << debtAmount << endl;
+                cout << "Enter payment amount: ";
+                cin >> payment;
+                if(payment > 0 && payment <= debtAmount){  // Ensure payment is positive and does not exceed debt and Ensures the payment doesn't exceed the total debt owed
+                    debtAmount -= payment; // Subtract payment from debt amount
+                    cout << "Payment of $" << payment << " made successfully!" << endl;
+                    cout << "You now owe: $" << debtAmount << endl;
+                } else {
+                    cout << "Invalid payment amount." << endl;
+                }
+            } else {
+                cout << "Invalid debt amount." << endl;
+            }
             break;
+        }
         default:
             cout << "Invalid option" << endl;
             break;
